@@ -7,6 +7,7 @@ k.scene("level", async () => {
     const levelDataJson = await levelData.json();
 
     k.onLoad(() => {
+        debug.inspect = true
         const levelControl = level(k, levelDataJson);
     });
 
