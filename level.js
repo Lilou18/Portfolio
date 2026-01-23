@@ -26,9 +26,6 @@ export function level(k, dataLevel) {
         // Calculer le ratio de scaling de la sprite par rapport à la sprite "de référence" (1820)
         spriteScaleRatio = mapPart1.width / REFERENCE_SPRITE_WIDTH;
 
-        console.log("spriteScaleRatio:", spriteScaleRatio);
-        console.log("mapPart1.width:", mapPart1.width);
-
         // Créer les colliders une seule fois
         const levelLayers = dataLevel.layers;
         const colliders = [];
@@ -39,7 +36,6 @@ export function level(k, dataLevel) {
             }
         }
         
-        console.log("Colliders from JSON:", colliders);
         colliderObjects = setMapColliders(k, mapPart1, colliders);
 
         // Créer les bordures invisibles
@@ -61,7 +57,6 @@ export function level(k, dataLevel) {
                 }),
                 k.body({ isStatic: true }),
                 "collider",
-                k.opacity(0.5) // Rendre visible en debug
             ]);
 
             // Stocker les données originales du JSON
@@ -74,8 +69,6 @@ export function level(k, dataLevel) {
 
             colliderObjects.push(colliderObj);
         }
-
-        console.log("Total colliders created:", colliderObjects.length);
         return colliderObjects;
     }
 
@@ -110,14 +103,6 @@ export function level(k, dataLevel) {
 
         const scaleY = canvasHeight / mapParts[0].height;
         const scaleX = canvasWidth / FIXED_VIEW_WIDTH;
-
-        console.log("=== DEBUG SCALING ===");
-        console.log("spriteScaleRatio:", spriteScaleRatio);
-        console.log("canvasHeight:", canvasHeight);
-        console.log("mapParts[0].height:", mapParts[0].height);
-        console.log("scaleY:", scaleY);
-        console.log("scaleX:", scaleX);
-        console.log("FIXED_VIEW_WIDTH:", FIXED_VIEW_WIDTH);
 
         // Mettre à jour l'échelle et la position sans détruire
         mapParts.forEach((part) => {
@@ -172,7 +157,7 @@ export function level(k, dataLevel) {
             collider.area.shape.width = collider.original.width * scaleX;
             collider.area.shape.height = collider.original.height * scaleY * spriteScaleRatio;
 
-            console.log("Collider final pos:", collider.pos, "Size:", collider.area.shape.width, "x", collider.area.shape.height);
+           
         });
     }
 
@@ -181,7 +166,6 @@ export function level(k, dataLevel) {
 
     // When we resize the canvas we must recalculate the scale of the gameObjects in the scene.
     const resizeHandler = onResize(() => {
-        console.log("RESIZE EVENT TRIGGERED");
         updateScaling();
     });
 

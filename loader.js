@@ -32,7 +32,7 @@ const spriteConfig = {
 
 function getSpriteSizeCategory() {
     if (deviceInfo.isIpad || deviceInfo.isTablet) {
-        console.log("is a tablet");
+        //console.log("is a tablet");
         return "medium";
     }
     // else if(deviceInfo.isMobile){
@@ -40,7 +40,7 @@ function getSpriteSizeCategory() {
     // }
     else {
         // Desktop
-        console.log("is desktop");
+        //console.log("is desktop");
         return "large";
     }
 };
@@ -53,7 +53,7 @@ function getSpritePath(spriteName) {
         console.warn(`Sprite ${spriteName} not found in config`);
         return `./assets/${spriteName}.png`; // fallback
     }
-    console.log(sizeCategory);
+    //console.log(sizeCategory);
 
     return config[sizeCategory] || config.large;
 };
