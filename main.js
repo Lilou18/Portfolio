@@ -1,9 +1,14 @@
 import { k } from "./loader.js";
+import { level } from "./level.js";
 
 k.scene("level", async () => {
     // Load level data
     const levelData = await fetch("level2.json");
     const levelDataJson = await levelData.json();
+
+    k.onLoad(() => {
+        const levelControl = level(k, levelDataJson);
+    });
 
     // Display FPS in game
     let lastTime = performance.now();

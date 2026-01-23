@@ -13,18 +13,56 @@ export const k = kaplay({
     broadPhaseCollisionAlgorithm: "sap",
 });
 
-const screenWidth = Math.max(window.innerWidth, window.innerHeight);
-let prefix = "Small";
+k.loadFont("orbitron", "./fonts/static/Orbitron-Regular.ttf");
 
-if(deviceInfo.isIpad){
-    console.log("Is An Ipad");
-}
-if(deviceInfo.isTablet){
-    console.log("is a tablet");
-}
+const spriteConfig = {
+    levelP1: {
+        medium: "./assets/levelP1Medium.png",
+        large: "./assets/levelP1.png"
+    },
+    levelP2: {
+        medium: "./assets/levelP2Medium.png",
+        large: "./assets/levelP2.png"
+    },
+    levelP3: {
+        medium: "./assets/levelP3Medium.png",
+        large: "./assets/levelP3.png"
+    },
+};
 
-loadSprite("levelP1", "./assets/levelP1.png");
-loadSprite("levelP2", "./assets/levelP2.png");
-loadSprite("levelP3", "./assets/levelP3.png");
+function getSpriteSizeCategory() {
+    if (deviceInfo.isIpad || deviceInfo.isTablet) {
+        console.log("is a tablet");
+        return "medium";
+    }
+    // else if(deviceInfo.isMobile){
 
-loadFont("orbitron", "./fonts/static/Orbitron-Regular.ttf");
+    // }
+    else {
+        // Desktop
+        console.log("is desktop");
+        return "large";
+    }
+};
+
+function getSpritePath(spriteName) {
+    const sizeCategory = getSpriteSizeCategory();
+    const config = spriteConfig[spriteName];
+
+    if (!config) {
+        console.warn(`Sprite ${spriteName} not found in config`);
+        return `./assets/${spriteName}.png`; // fallback
+    }
+    console.log(sizeCategory);
+
+    return config[sizeCategory] || config.large;
+};
+
+function loadAppropriateSprites(spriteName, options) {
+    const spritePath = getSpritePath(spriteName);
+    k.loadSprite(spriteName, spritePath, options);
+};
+
+loadAppropriateSprites("levelP1", {});
+loadAppropriateSprites("levelP2", {});
+loadAppropriateSprites("levelP3", {});
