@@ -138,7 +138,7 @@ export function level(k, dataLevel) {
                 k.anchor("bot"),
                 k.pos(position.x, position.y), // Position originale de Tiled
                 k.scale(config.scale),
-                k.offscreen({ hide: true, distance: 500 }),
+                k.offscreen({ hide: true, distance: 500 , pause: true}),
                 k.z(1),
                 config.sprite,
             ]);
