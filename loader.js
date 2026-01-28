@@ -17,21 +17,167 @@ k.loadFont("orbitron", "./fonts/static/Orbitron-Regular.ttf");
 
 const spriteConfig = {
     levelP1: {
-        medium: "./assets/levelP1Medium.png",
-        large: "./assets/levelP1.png"
+        medium: {
+            src: "./assets/levelP1Medium.png",
+            options: {},
+        },
+        large: {
+            src: "./assets/levelP1.png",
+            options: {},
+        },
     },
     levelP2: {
-        medium: "./assets/levelP2Medium.png",
-        large: "./assets/levelP2.png"
+        medium: {
+            src: "./assets/levelP2Medium.png",
+            options: {},
+        },
+        large: {
+            src: "./assets/levelP2.png",
+            options: {},
+        },
     },
     levelP3: {
-        medium: "./assets/levelP3Medium.png",
-        large: "./assets/levelP3.png"
+        medium: {
+            src: "./assets/levelP3Medium.png",
+            options: {},
+        },
+        large: {
+            src: "./assets/levelP3.png",
+            options: {},
+        },
+    },
+    citySign: {
+        medium: {
+            src: "./assets/citySignMedium.png",
+            options: {
+                sliceX: 3,
+                sliceY: 3,
+                anims: {
+                    hologram: {
+                        from: 0,
+                        to: 6,
+                        speed: 10,
+                        loop: false,
+                    }
+                }
+            },
+        },
+        large: {
+            src: "./assets/citySign.png",
+            options: {
+                sliceX: 5,
+                sliceY: 4,
+                anims: {
+                    hologram: {
+                        from: 0,
+                        to: 16,
+                        speed: 15,
+                        loop: false,
+                    }
+                }
+            },
+        },
+    },
+    hologramCV: {
+        medium: {
+            src: "./assets/hologramCVMedium.png",
+            options: {
+                sliceX: 3,
+                sliceY: 3,
+                anims: {
+                    hologram: {
+                        from: 0,
+                        to: 8,
+                        speed: 8,
+                        loop: true,
+                    }
+                }
+            },
+        },
+        large: {
+            src: "./assets/hologramCV.png",
+            options: {
+                sliceX: 3,
+                sliceY: 3,
+                anims: {
+                    hologram: {
+                        from: 0,
+                        to: 8,
+                        speed: 8,
+                        loop: true,
+                    }
+                }
+            },
+        },
+    },
+    hologramPortfolio: {
+        medium: {
+            src: "./assets/hologramPortfolioMedium.png",
+            options: {
+                sliceX: 3,
+                sliceY: 3,
+                anims: {
+                    hologram: {
+                        from: 0,
+                        to: 8,
+                        speed: 8,
+                        loop: true,
+                    }
+                }
+            },
+        },
+        large: {
+            src: "./assets/hologramPortfolio.png",
+            options: {
+                sliceX: 3,
+                sliceY: 3,
+                anims: {
+                    hologram: {
+                        from: 0,
+                        to: 8,
+                        speed: 8,
+                        loop: true,
+                    }
+                }
+            },
+        },
+    },
+    hologramContact: {
+        medium: {
+            src: "./assets/hologramContactMedium.png",
+            options: {
+                sliceX: 3,
+                sliceY: 3,
+                anims: {
+                    hologram: {
+                        from: 0,
+                        to: 8,
+                        speed: 8,
+                        loop: true,
+                    }
+                }
+            },
+        },
+        large: {
+            src: "./assets/hologramContact.png",
+            options: {
+                sliceX: 3,
+                sliceY: 3,
+                anims: {
+                    hologram: {
+                        from: 0,
+                        to: 8,
+                        speed: 8,
+                        loop: true,
+                    }
+                }
+            },
+        },
     },
 };
 
 function getSpriteSizeCategory() {
-    if (deviceInfo.isIpad || deviceInfo.isTablet) {
+    if (deviceInfo.isIpad || deviceInfo.isTablet || deviceInfo.isMobile) {
         //console.log("is a tablet");
         return "medium";
     }
@@ -45,7 +191,7 @@ function getSpriteSizeCategory() {
     }
 };
 
-function getSpritePath(spriteName) {
+function loadAppropriateSprites(spriteName) {
     const sizeCategory = getSpriteSizeCategory();
     const config = spriteConfig[spriteName];
 
@@ -55,14 +201,17 @@ function getSpritePath(spriteName) {
     }
     //console.log(sizeCategory);
 
-    return config[sizeCategory] || config.large;
+    const spriteData = config[sizeCategory] || config.large;
+
+    k.loadSprite(spriteName, spriteData.src, spriteData.options);
+    console.log(spriteData.src);
 };
 
-function loadAppropriateSprites(spriteName, options) {
-    const spritePath = getSpritePath(spriteName);
-    k.loadSprite(spriteName, spritePath, options);
-};
+loadAppropriateSprites("levelP1");
+loadAppropriateSprites("levelP2");
+loadAppropriateSprites("levelP3");
 
-loadAppropriateSprites("levelP1", {});
-loadAppropriateSprites("levelP2", {});
-loadAppropriateSprites("levelP3", {});
+loadAppropriateSprites("citySign");
+loadAppropriateSprites("hologramCV");
+loadAppropriateSprites("hologramPortfolio");
+loadAppropriateSprites("hologramContact");
