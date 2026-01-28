@@ -35,7 +35,7 @@ export function level(k, dataLevel) {
                 break;
             }
         }
-        
+
         colliderObjects = setMapColliders(k, mapPart1, colliders);
 
         // Créer les bordures invisibles
@@ -96,13 +96,16 @@ export function level(k, dataLevel) {
 
     // Fonction pour calculer et appliquer le scaling
     function updateScaling() {
-        const canvasWidth = width();
-        const canvasHeight = height();
 
         if (mapParts.length === 0) return;
 
-        const scaleY = canvasHeight / mapParts[0].height;
-        const scaleX = canvasWidth / FIXED_VIEW_WIDTH;
+        const { scaleX, scaleY } = getCurrentScale(mapParts);
+
+        // const canvasWidth = width();
+        // const canvasHeight = height();
+
+        // const scaleY = canvasHeight / mapParts[0].height;
+        // const scaleX = canvasWidth / FIXED_VIEW_WIDTH;
 
         // Mettre à jour l'échelle et la position sans détruire
         mapParts.forEach((part) => {
@@ -127,6 +130,23 @@ export function level(k, dataLevel) {
         k.setGravity(1400 * scaleY);
     }
 
+    // Fonction pour calculer le scale actuel
+    function getCurrentScale(mapParts) {
+        if (mapParts.length === 0) return { scaleX: 1, scaleY: 1 };
+
+        // const canvasWidth = width();
+        // const canvasHeight = height();
+        // const scaleY = canvasHeight / mapParts[0].height;
+        // const scaleX = canvasWidth / mapParts[0].width;
+        const canvasWidth = width();
+        const canvasHeight = height();
+
+        const scaleY = canvasHeight / mapParts[0].height;
+        const scaleX = canvasWidth / FIXED_VIEW_WIDTH;
+
+        return { scaleX, scaleY };
+    }
+
     function updateBorders(scaleX, scaleY) {
         if (!borders) return;
 
@@ -147,7 +167,7 @@ export function level(k, dataLevel) {
         // Les colliders du JSON correspondent à la sprite ORIGINALE de référence (1820px)
         // Les colliders Y doivent aussi être scalés par spriteScaleRatio
         // Car ils sont basés sur les proportions de la sprite de référence
-        
+
         colliderObjects.forEach(collider => {
             collider.pos = vec2(
                 collider.original.x * scaleX,
@@ -157,7 +177,7 @@ export function level(k, dataLevel) {
             collider.area.shape.width = collider.original.width * scaleX;
             collider.area.shape.height = collider.original.height * scaleY * spriteScaleRatio;
 
-           
+
         });
     }
 
@@ -170,16 +190,4 @@ export function level(k, dataLevel) {
     });
 
     return levelControl;
-}
-
-// Fonction pour calculer le scale actuel
-function getCurrentScale(mapParts) {
-    if (mapParts.length === 0) return { scaleX: 1, scaleY: 1 };
-
-    const canvasWidth = width();
-    const canvasHeight = height();
-    const scaleY = canvasHeight / mapParts[0].height;
-    const scaleX = canvasWidth / mapParts[0].width;
-
-    return { scaleX, scaleY };
 }
