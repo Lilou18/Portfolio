@@ -1,3 +1,5 @@
+import { createWorld } from "./animationManager.js";
+
 export let levelControl = null;
 
 export function level(k, dataLevel) {
@@ -12,6 +14,8 @@ export function level(k, dataLevel) {
     let FIXED_VIEW_WIDTH = 1820;
     const REFERENCE_SPRITE_WIDTH = 2176; // Largeur réelle de la sprite originale
     let spriteScaleRatio = 1; // Ratio entre sprite de desktop et sprite actuelle
+
+    const world = createWorld();
 
     // Initialisation unique
     function initializeMap() {
@@ -40,6 +44,8 @@ export function level(k, dataLevel) {
 
         // Créer les bordures invisibles
         borders = setMapBorders(k, 128, height(), mapPart1.width);
+
+        holograms = setHolograms(k, levelLayers[6].objects);
 
         // Appliquer le scaling initial
         updateScaling();
@@ -92,6 +98,90 @@ export function level(k, dataLevel) {
         ]);
 
         return { left: borderLeft, right: borderRight };
+    }
+
+    function setHolograms(k, hologramsMapPosition) {
+        const holograms = [];
+
+        const hologramsConfig = {
+            hologramPortfolio: {
+                sprite: "hologramPortfolio",
+                scale: 0.6,
+                yOffset: 10,
+            },
+            hologramCV: {
+                sprite: "hologramCV",
+                scale: 0.6,
+                yOffset: 10,
+            },
+            hologramContact: {
+                sprite: "hologramContact",
+                scale: 0.6,
+                yOffset: 10,
+            },
+            citySign: {
+                sprite: "citySign",
+                scale: 1,
+                yOffset: 0,
+            },
+        };
+
+        for (const position of hologramsMapPosition) {
+            const config = hologramsConfig[position.name];
+
+            if (!config) continue; // Ignore positions not in the config
+            //("---------------------------------------------------");
+            //console.log(config.sprite);
+            const hologram = world.add([
+                k.sprite(config.sprite, position.name === "citySign" ? {} : { anim: "hologram" }),
+                k.area({ isSensor: true }),
+                k.anchor("bot"),
+                k.pos(position.x, position.y), // Position originale de Tiled
+                k.scale(config.scale),
+                k.offscreen({ hide: true, distance: 500 }),
+                k.z(1),
+                config.sprite,
+            ]);
+
+            const originalAnimSpeed = hologram.animSpeed || 1;
+
+            // If not a city sign then we want a pointer cursor when user hover the gameobject
+            if (position.name !== "citySign") {
+                hologram.onHover(() => {
+                    k.setCursor("pointer");
+                });
+
+                hologram.onHoverEnd(() => {
+                    k.setCursor("default");
+                });
+
+                hologram.onEnterScreen(() => {
+                    hologram.hidden = false;
+                });
+
+                hologram.onExitScreen(() => {
+                    hologram.hidden = true;
+                });
+            }
+            else {
+                // Special animation for citySign
+                // k.wait(0.1, () => {
+                //     delayedLoop(k, hologram, "hologram", 5);
+                // });
+            }
+
+            // Mémoriser la position originale et le scale
+            holograms.push({
+                object: hologram,
+                originalX: position.x,
+                originalY: position.y + config.yOffset,
+                originalScale: config.scale,
+            });
+            //console.log(hologram.pos.x);
+            //console.log(hologram.pos.y)
+        }
+
+        return holograms;
     }
 
     // Fonction pour calculer et appliquer le scaling
