@@ -162,12 +162,12 @@ export function level(k, dataLevel) {
     }
 
     // Initialisation
-    //initializeMap();
+    initializeMap();
 
     // When we resize the canvas we must recalculate the scale of the gameObjects in the scene.
-    // const resizeHandler = onResize(() => {
-    //     updateScaling();
-    // });
+    const resizeHandler = onResize(() => {
+        updateScaling();
+    });
 
     return levelControl;
 }
