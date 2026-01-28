@@ -36,10 +36,10 @@ export function level(k, dataLevel) {
             }
         }
         
-        //colliderObjects = setMapColliders(k, mapPart1, colliders);
+        colliderObjects = setMapColliders(k, mapPart1, colliders);
 
         // Créer les bordures invisibles
-        //borders = setMapBorders(k, 128, height(), mapPart1.width);
+        borders = setMapBorders(k, 128, height(), mapPart1.width);
 
         // Appliquer le scaling initial
         updateScaling();
@@ -119,10 +119,10 @@ export function level(k, dataLevel) {
         }
 
         // Mettre à jour les bordures
-        //updateBorders(scaleX, scaleY);
+        updateBorders(scaleX, scaleY);
 
         // Mettre à jour les colliders
-        //updateColliders(scaleX, scaleY);
+        updateColliders(scaleX, scaleY);
 
         k.setGravity(1400 * scaleY);
     }
