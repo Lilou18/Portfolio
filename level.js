@@ -81,7 +81,7 @@ export function level(k, dataLevel) {
     function setMapBorders(k, tilewidth, mapheight, mapWidth) {
         const borderLeft = k.add([
             k.rect(tilewidth, mapheight),
-            k.area(),
+            k.area({collisionIgnore: ["collider"]}),
             k.opacity(0),
             k.body({ isStatic: true }),
             k.pos(-128, 0),
@@ -90,7 +90,7 @@ export function level(k, dataLevel) {
 
         const borderRight = k.add([
             k.rect(tilewidth, mapheight),
-            k.area(),
+            k.area({collisionIgnore: ["collider"]}),
             k.opacity(0),
             k.body({ isStatic: true }),
             k.pos(mapWidth, 0),
@@ -134,7 +134,7 @@ export function level(k, dataLevel) {
             //console.log(config.sprite);
             const hologram = world.add([
                 k.sprite(config.sprite, position.name === "citySign" ? {} : { anim: "hologram" }),
-                k.area({ isSensor: true }),
+                k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight"]}),
                 k.anchor("bot"),
                 k.pos(position.x, position.y), // Position originale de Tiled
                 k.scale(config.scale),
