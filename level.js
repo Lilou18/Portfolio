@@ -30,6 +30,8 @@ export function level(k, dataLevel) {
         // Calculer le ratio de scaling de la sprite par rapport à la sprite "de référence" (1820)
         spriteScaleRatio = mapPart1.width / REFERENCE_SPRITE_WIDTH;
 
+        const { scaleX, scaleY } = getCurrentScale(mapParts);
+
         // Créer les colliders une seule fois
         const levelLayers = dataLevel.layers;
         const colliders = [];
@@ -45,7 +47,7 @@ export function level(k, dataLevel) {
         // Créer les bordures invisibles
         borders = setMapBorders(k, 128, height(), mapPart1.width);
 
-        holograms = setHolograms(k, levelLayers[6].objects);
+        holograms = setHolograms(k, levelLayers[6].objects, scaleX, scaleY);
 
         // Appliquer le scaling initial
         updateScaling();
@@ -100,8 +102,9 @@ export function level(k, dataLevel) {
         return { left: borderLeft, right: borderRight };
     }
 
-    function setHolograms(k, hologramsMapPosition) {
+    function setHolograms(k, hologramsMapPosition, scaleX, scaleY) {
         const holograms = [];
+        const map = mapParts[0];
 
         const hologramsConfig = {
             hologramPortfolio: {
@@ -131,13 +134,15 @@ export function level(k, dataLevel) {
 
             if (!config) continue; // Ignore positions not in the config
             //("---------------------------------------------------");
-            //console.log(config.sprite);
+            const x = map.pos.x + position.x * scaleX * spriteScaleRatio;
+            const y = map.pos.y + (position.y + config.yOffset) * scaleY * spriteScaleRatio;
+
             const hologram = world.add([
                 k.sprite(config.sprite, position.name === "citySign" ? {} : { anim: "hologram" }),
                 k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight"] }),
                 k.anchor("bot"),
-                k.pos(position.x, position.y), // Position originale de Tiled
-                k.scale(config.scale),
+                k.pos(x, y), // Position originale de Tiled
+                k.scale(config.scale * scaleX, config.scale * scaleY),
                 k.offscreen({ hide: true, distance: 500, pause: true }),
                 k.z(1),
                 config.sprite,
