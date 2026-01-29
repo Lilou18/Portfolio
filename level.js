@@ -141,7 +141,7 @@ export function level(k, dataLevel) {
                 k.sprite(config.sprite, position.name === "citySign" ? {} : { anim: "hologram" }),
                 k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight"] }),
                 k.anchor("bot"),
-                k.pos(position.x, position.y), // Position originale de Tiled
+                k.pos(x, y), // Position originale de Tiled
                 k.scale(config.scale),
                 k.offscreen({ hide: true, distance: 500, pause: true }),
                 k.z(1),
