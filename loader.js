@@ -204,7 +204,7 @@ function loadAppropriateSprites(spriteName) {
     const spriteData = config[sizeCategory] || config.large;
 
     k.loadSprite(spriteName, spriteData.src, spriteData.options);
-    console.log(spriteData.src);
+    //console.log(spriteData.src);
 };
 
 loadAppropriateSprites("levelP1");

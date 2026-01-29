@@ -81,7 +81,7 @@ export function level(k, dataLevel) {
     function setMapBorders(k, tilewidth, mapheight, mapWidth) {
         const borderLeft = k.add([
             k.rect(tilewidth, mapheight),
-            k.area({collisionIgnore: ["collider"]}),
+            k.area({ collisionIgnore: ["collider"] }),
             k.opacity(0),
             k.body({ isStatic: true }),
             k.pos(-128, 0),
@@ -90,7 +90,7 @@ export function level(k, dataLevel) {
 
         const borderRight = k.add([
             k.rect(tilewidth, mapheight),
-            k.area({collisionIgnore: ["collider"]}),
+            k.area({ collisionIgnore: ["collider"] }),
             k.opacity(0),
             k.body({ isStatic: true }),
             k.pos(mapWidth, 0),
@@ -134,11 +134,11 @@ export function level(k, dataLevel) {
             //console.log(config.sprite);
             const hologram = world.add([
                 k.sprite(config.sprite, position.name === "citySign" ? {} : { anim: "hologram" }),
-                k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight"]}),
+                k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight"] }),
                 k.anchor("bot"),
                 k.pos(position.x, position.y), // Position originale de Tiled
                 k.scale(config.scale),
-                k.offscreen({ hide: true, distance: 500 , pause: true}),
+                k.offscreen({ hide: true, distance: 500, pause: true }),
                 k.z(1),
                 config.sprite,
             ]);
@@ -217,6 +217,9 @@ export function level(k, dataLevel) {
         // Mettre à jour les colliders
         updateColliders(scaleX, scaleY);
 
+        // Update Holograms
+        updateHolograms(scaleX, scaleY);
+
         k.setGravity(1400 * scaleY);
     }
 
@@ -269,6 +272,26 @@ export function level(k, dataLevel) {
 
 
         });
+    }
+
+    function updateHolograms(scaleX, scaleY) {
+        if (!holograms || holograms.length === 0) return;
+
+        const mapHeight = mapParts[0].height * scaleY;
+        const canvasHeight = height();
+        const mapOffsetY = canvasHeight - mapHeight;
+
+        for (const data of holograms) {
+            // Position map → écran
+            data.object.pos.x = data.originalX * scaleX;
+            data.object.pos.y = mapOffsetY + (data.originalY * scaleY);
+
+            // SCALE NON UNIFORME COMME LA MAP
+            data.object.scale = vec2(
+                data.originalScale * scaleX,
+                data.originalScale * scaleY
+            );
+        }
     }
 
     // Initialisation
