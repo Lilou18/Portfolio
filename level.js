@@ -143,15 +143,10 @@ export function level(k, dataLevel) {
                 k.anchor("bot"),
                 k.pos(position.x, position.y), // Position originale de Tiled
                 k.scale(config.scale),
-                k.offscreen({ hide: true, distance: 500, pause: true }),
+                k.offscreen({ hide: true, distance: 500, pause: true, unpause: true}),
                 k.z(1),
                 config.sprite,
             ]);
-
-            hologram.pos = k.vec2(
-                mapParts[0].pos.x + position.x * scaleX * spriteScaleRatio,
-                mapParts[0].pos.y + (position.y + config.yOffset) * scaleY * spriteScaleRatio
-            );
 
             const originalAnimSpeed = hologram.animSpeed || 1;
 
