@@ -215,7 +215,7 @@ export function level(k, dataLevel) {
         updateColliders(scaleX, scaleY);
 
         // Update Holograms
-        //updateHolograms(scaleX, scaleY);
+        updateHolograms(scaleX, scaleY);
 
         k.setGravity(1400 * scaleY);
     }
