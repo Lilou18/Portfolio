@@ -142,8 +142,8 @@ export function level(k, dataLevel) {
                 k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight"] }),
                 k.anchor("bot"),
                 k.pos(x, y), // Position originale de Tiled
-                k.scale(config.scale),
-                k.offscreen({ hide: true, pause: true, unpause: true}),
+                k.scale(config.scale * scaleX, config.scale * scaleY),
+                k.offscreen({ hide: true, pause: true, distance:500, unpause: true}),
                 k.z(1),
                 config.sprite,
             ]);
