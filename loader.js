@@ -174,6 +174,23 @@ const spriteConfig = {
             },
         },
     },
+    collectible: {
+        large: {
+            src: "./assets/collectible.png",
+            options: {
+                sliceX: 31,
+                sliceY: 1,
+                anims: {
+                    mug: {
+                        from: 0,
+                        to: 30,
+                        speed: 12,
+                        loop: true,
+                    }
+                }
+            },
+        },
+    },
 };
 
 function getSpriteSizeCategory() {
@@ -215,3 +232,5 @@ loadAppropriateSprites("citySign");
 loadAppropriateSprites("hologramCV");
 loadAppropriateSprites("hologramPortfolio");
 loadAppropriateSprites("hologramContact");
+
+loadAppropriateSprites("collectible");

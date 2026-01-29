@@ -139,7 +139,7 @@ export function level(k, dataLevel) {
 
             const hologram = world.add([
                 k.sprite(config.sprite, position.name === "citySign" ? {} : { anim: "hologram" }),
-                k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight"] }),
+                k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight", "collectible", "enemy"] }),
                 k.anchor("bot"),
                 k.pos(x, y), // Position originale de Tiled
                 k.scale(config.scale * scaleX, config.scale * scaleY),
