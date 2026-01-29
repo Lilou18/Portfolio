@@ -139,10 +139,6 @@ export function level(k, dataLevel) {
             const x = mapX + position.x * scaleX * spriteScaleRatio;
             const y = mapY + (position.y + config.yOffset) * scaleY * spriteScaleRatio;
 
-            console.log("scaleX:", scaleX, typeof scaleX);
-            console.log("scaleY:", scaleY, typeof scaleY);
-            console.log("spriteScaleRatio:", spriteScaleRatio, typeof spriteScaleRatio);
-
             const hologram = world.add([
                 k.sprite(config.sprite, position.name === "citySign" ? {} : { anim: "hologram" }),
                 k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight"] }),
