@@ -154,14 +154,6 @@ export function level(k, dataLevel) {
                 hologram.onHoverEnd(() => {
                     k.setCursor("default");
                 });
-
-                hologram.onEnterScreen(() => {
-                    hologram.hidden = false;
-                });
-
-                hologram.onExitScreen(() => {
-                    hologram.hidden = true;
-                });
             }
             else {
                 // Special animation for citySign
