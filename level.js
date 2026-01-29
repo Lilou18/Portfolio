@@ -277,16 +277,30 @@ export function level(k, dataLevel) {
     function updateHolograms(scaleX, scaleY) {
         if (!holograms || holograms.length === 0) return;
 
-        const mapHeight = mapParts[0].height * scaleY;
-        const canvasHeight = height();
-        const mapOffsetY = canvasHeight - mapHeight;
+        // const mapHeight = mapParts[0].height * scaleY;
+        // const canvasHeight = height();
+        // const mapOffsetY = canvasHeight - mapHeight;
+
+        // for (const data of holograms) {
+        //     // Position map → écran
+        //     data.object.pos.x = data.originalX * scaleX;
+        //     data.object.pos.y = mapOffsetY + (data.originalY * scaleY);
+
+        //     // SCALE NON UNIFORME COMME LA MAP
+        //     data.object.scale = vec2(
+        //         data.originalScale * scaleX,
+        //         data.originalScale * scaleY
+        //     );
+        // }
+        const map = mapParts[0];
 
         for (const data of holograms) {
-            // Position map → écran
-            data.object.pos.x = data.originalX * scaleX;
-            data.object.pos.y = mapOffsetY + (data.originalY * scaleY);
 
-            // SCALE NON UNIFORME COMME LA MAP
+            data.object.pos = vec2(
+                map.pos.x + data.originalX * scaleX * spriteScaleRatio,
+                map.pos.y + data.originalY * scaleY * spriteScaleRatio
+            );
+
             data.object.scale = vec2(
                 data.originalScale * scaleX,
                 data.originalScale * scaleY
