@@ -141,12 +141,17 @@ export function level(k, dataLevel) {
                 k.sprite(config.sprite, position.name === "citySign" ? {} : { anim: "hologram" }),
                 k.area({ isSensor: true, collisionIgnore: ["collider", "borderLeft", "borderRight"] }),
                 k.anchor("bot"),
-                k.pos(x, y), // Position originale de Tiled
-                k.scale(config.scale * scaleX, config.scale * scaleY),
+                k.pos(position.x, position.y), // Position originale de Tiled
+                k.scale(config.scale),
                 k.offscreen({ hide: true, distance: 500, pause: true }),
                 k.z(1),
                 config.sprite,
             ]);
+
+            hologram.pos = k.vec2(
+                mapParts[0].pos.x + position.x * scaleX * spriteScaleRatio,
+                mapParts[0].pos.y + (position.y + config.yOffset) * scaleY * spriteScaleRatio
+            );
 
             const originalAnimSpeed = hologram.animSpeed || 1;
 
@@ -215,7 +220,7 @@ export function level(k, dataLevel) {
         updateColliders(scaleX, scaleY);
 
         // Update Holograms
-        updateHolograms(scaleX, scaleY);
+        //updateHolograms(scaleX, scaleY);
 
         k.setGravity(1400 * scaleY);
     }
