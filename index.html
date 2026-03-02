@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a20723a298.js" crossorigin="anonymous"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Acceuil - Lilou Blanchette</title>
+    <script src="browserTabs.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-browser">
+                <div class="tabs-row" id="tabsRow">
+                    <!--Mobile-->
+                    <a href="index.html" class="tab-mobile active-tab" id="tabLink">
+                        <span class="tab-icon"><i class="fa-solid fa-globe"></i></span>
+                        Acceuil
+                        <span class="close-tab">x</span>
+                    </a>
+                    <button type="button" class="tabs-menu" id="menuBtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <div class="tabs-dropdown hidden" id="tabsDropdown">
+                        <a href="index.html" class="dropdown-tab active-dropdown-tab">
+                            <span class="tab-icon"><i class="fa-solid fa-globe"></i></span>
+                            Acceuil
+                            <span class="close-tab">x</span>
+                        </a>
+                        <a href="portfolio.html" class="dropdown-tab">
+                            <span class="tab-icon"><i class="fa-solid fa-globe"></i></span>
+                            Portfolio
+                            <span class="close-tab">x</span>
+                        </a>
+                        <a href="contact.html" class="dropdown-tab">
+                            <span class="tab-icon"><i class="fa-solid fa-globe"></i></span>
+                            Contact
+                            <span class="close-tab">x</span>
+                        </a>
+                    </div>
+
+                    <!--Desktop-->
+                    <a href="index.html" class="tab active-tab">
+                        <span class="tab-icon"><i class="fa-solid fa-globe"></i></span>
+                        Acceuil
+                        <span class="close-tab">x</span>
+                    </a>
+                    <a href="portfolio.html" class="tab">
+                        <span class="tab-icon"><i class="fa-solid fa-globe"></i></span>
+                        Portfolio
+                        <span class="close-tab">x</span>
+                    </a>
+                    <a href="contact.html" class="tab">
+                        <span class="tab-icon"><i class="fa-solid fa-globe"></i></span>
+                        Contact
+                        <span class="close-tab">x</span>
+                    </a>
+
+                    <div class="window-buttons-wrapper">
+                        <button class="window-button"><i class="fa-solid fa-window-minimize"></i></i></button>
+                        <button class="window-button"><i class="fa-regular fa-window-restore"></i></button>
+                        <button class="window-button"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                </div>
+                <hr class="nav-separator">
+                <div class="adress-bar">
+                    <div class="nav-buttons">
+                        <button class="nav-btn"><i class="fa-solid fa-arrow-left"></i></button>
+                        <button class="nav-btn"><i class="fa-solid fa-arrow-right"></i></button>
+                        <button class="nav-btn"><i class="fa-solid fa-xmark"></i></button>
+                    </div>
+                    <input id="url" readonly type="text" value="https://cv.lilou-blanchette.dev/acceuil">
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <!-- <main>
+            <section id="cvPanel">
+                <div class="browser-content">
+                    <div class="content-section">
+
+                        <div class="cv-header">
+                            <h1>Lilou Blanchette</h1>
+                            <p class="cv-job">Game Designer & Developer</p>
+                            <div class="cv-contact">
+                                <a class="cv-icons" href="tel:+14385277030" target="_blank"><i
+                                        class="fa-solid fa-phone"></i>
+                                    438-527-7030</a>
+                                <a class="cv-icons" href="mailto:blanchette.lilou@gmail.com"><i
+                                        class="fa-solid fa-envelope"></i> blanchette.lilou@gmail.com</a>
+                                <a class="cv-icons" href="https://github.com/Lilou18" target="_blank"><i
+                                        class="fa-brands fa-github"></i> Github</a>
+                            </div>
+                        </div>
+
+                        <div class="cv-body">
+                            <div class="cv-left-column">
+                                <div class="cv-section">
+                                    <h2 class="cv-section-title">Formation</h2>
+                                    <div class="formation-item">
+                                        <p class="school-program">DESS Design de jeux</p>
+                                        <p class="school-name">Université de Montréal</p>
+                                        <p class="school-year">2024 - 2025</p>
+                                    </div>
+                                    <div class="formation-item">
+                                        <p class="school-program">Baccalauréat en informatique</p>
+                                        <p class="school-name">Université de Montréal</p>
+                                        <p class="school-year">2020 - 2023</p>
+                                    </div>
+                                    <div class="formation-item">
+                                        <p class="school-program">DEC Sciences, informatiques et mathématiques</p>
+                                        <p class="school-name">Collège Lionel-Groulx</p>
+                                        <p class="school-year">2018 - 2020</p>
+                                    </div>
+                                </div>
+                                <div class="cv-section">
+                                    <h2 class="cv-section-title">Logiciels</h2>
+                                    <ul class="logiciel">
+                                        <li>Unity</li>
+                                        <li>Visual Studio</li>
+                                        <li>Visual Studio Code</li>
+                                        <li>GitHub et GitLab</li>
+                                        <li>IntelliJ IDEA</li>
+                                        <li>WebStorm</li>
+                                        <li>PyCharm</li>
+                                        <li>CLion</li>
+                                        <li>Microsoft Office</li>
+                                    </ul>
+                                </div>
+                                <div class="cv-section">
+                                    <h2 class="cv-section-title">Langues</h2>
+                                    <ul class="langage">
+                                        <li>Français</li>
+                                        <li>Anglais</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cv-right-column">
+                                <div class="cv-section">
+                                    <h2 class="cv-section-title">Profil</h2>
+                                    <p class="profil-text">Passionnée par les jeux vidéo, avec une formation en design
+                                        et en
+                                        programmation
+                                    </p>
+                                    <p class="profil-text">Facilité à collaborer avec des équipes variées et à s’adapter
+                                        à
+                                        différents environnements de travail, en virtuel comme en présentiel</p>
+                                    <p class="profil-text">Communication efficace et adaptée selon les situations et les
+                                        interlocuteurs</p>
+                                    <p class="profil-text">Persévérance et rigueur accrue pour la résolution de
+                                        problèmes et
+                                        la correction de bogues
+                                    </p>
+                                    <p class="profil-text">Personne-ressource en cas d’enjeux informatiques et
+                                        logistiques
+                                    </p>
+                                </div>
+                                <div class="cv-section">
+                                    <h2 class="cv-section-title">Expérience Professionnelle</h2>
+                                    <div class="experience-item">
+                                        <div class="experience-header">
+                                            <h3>Squeeze Animation Studios</h3>
+                                            <p>Mai 2023 - Août 2023</p>
+                                        </div>
+                                        <p class="experience-title">Stagiaire TD Pipeline</p>
+                                        <ul>
+                                            <li>Créer et développer l’interface d’un système de gestion de
+                                                fichiers pour soutenir les artistes
+                                            </li>
+                                            <li>Travailler avec l'équipe de développement pour concevoir,
+                                                prendre en charge et améliorer les outils et les flux de travail
+                                                pour le pipeline de production
+                                            </li>
+                                            <li>Fournir des conseils techniques pour soutenir les artistes et les
+                                                chefs de département</li>
+                                            <li>Tenir à jour la documentation technique des outils et des flux
+                                                de travail</li>
+                                        </ul>
+                                    </div>
+                                    <div class="experience-item">
+                                        <div class="experience-header">
+                                            <h3>IGA extra Marché Lamoureux</h3>
+                                            <p>Juin 2019 - Mars 2023</p>
+                                        </div>
+                                        <p class="experience-title">Caissière</p>
+                                        <ul>
+                                            <li>Gérer une caisse et ses dépôts</li>
+                                            <li>Assurer la formation des nouveaux employé.e.s selon les
+                                                normes de l’entreprise</li>
+                                            <li>Aider à la gestion du processus de fermeture de
+                                                l’établissement</li>
+                                        </ul>
+                                    </div>
+
+                                </div>
+                                <div class="cv-section">
+                                    <h2 class="cv-section-title">COMPÉTENCES</h2>
+                                    <div class="cv-skills">
+                                        <h3>Langages de programmation:</h3>
+                                        <div class="skill-level-group">
+                                            <span class="skill-level-label">Avancée :</span>
+                                            <div class="skill-tags">
+                                                <span>C#</span>
+                                                <span>Java</span>
+                                                <span>Python</span>
+                                            </div>
+                                        </div>
+                                        <div class="skill-level-group">
+                                            <span class="skill-level-label">Intermédiaire :</span>
+                                            <div class="skill-tags">
+                                                <span>JavaScript</span>
+                                                <span>HTML</span>
+                                                <span>CSS</span>
+                                            </div>
+                                        </div>
+                                        <div class="skill-level-group">
+                                            <span class="skill-level-label">Débutante :</span>
+                                            <div class="skill-tags">
+                                                <span>C</span>
+                                                <span>C++</span>
+                                                <span>SQL</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="download-link" href="CV-Lilou-Blanchette.pdf" target="_blank">Cliquez ici pour télécharger
+                        le
+                        CV</a>
+
+                </div>
+            </section>
+        </main> -->
+
+
+
+</body>
+
+</html>
