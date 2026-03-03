@@ -1,7 +1,8 @@
 :root {
     --fs-h2: ;
     --fs-h1: clamp(2rem, 1.842rem + 0.842vw, 2.6rem);
-    --fs-h3: 1.5rem;
+    /* --fs-h3: 1.5rem; */
+    --fs-h3: clamp(1.2rem, 1.121rem + 0.421vw, 1.5rem);
     /*24px*/
     /* --fs-p: 1rem; */
     --fs-p: clamp(0.8rem, 0.747rem + 0.281vw, 1rem);
@@ -345,6 +346,7 @@ input[type=text] {
     color: #00ffff;
     text-align: center;
     padding: 30px;
+    padding: clamp(0.625rem, 0.296rem + 1.754vw, 1.875rem);
     padding-bottom: clamp(0rem, -0.493rem + 2.632vw, 1.875rem);
     position: relative;
 }
@@ -363,9 +365,11 @@ input[type=text] {
 .contact-grid {
     display: grid;
     /* grid-template-columns: repeat(2, minmax(500px, 1fr)); */
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    margin: 0px 30px 30px 30px;
+    /* grid-template-columns: repeat(2, 1fr); */
+    grid-template-columns: 1fr;
+    gap: clamp(0.938rem, 0.691rem + 1.316vw, 1.875rem);
+    margin: clamp(1.25rem, 1.086rem + 0.877vw, 1.875rem);
+    margin-top: 0px;
     /* overflow: hidden;  */
 }
 
@@ -379,7 +383,8 @@ input[type=text] {
     text-align: center;
     border: 1px solid #00ffff;
     border-radius: 12px;
-    padding: 50px 30px 50px 30px;
+    /* padding: 50px 30px 50px 30px; */
+    padding: clamp(0.938rem, 0.362rem + 3.07vw, 3.125rem) clamp(1.25rem, 1.086rem + 0.877vw, 1.875rem);
 }
 
 .contact-item p {
@@ -389,7 +394,13 @@ input[type=text] {
 }
 
 .contact-item h3 {
+    margin: clamp(0.875rem, 0.711rem + 0.877vw, 1.5rem);
+    margin-bottom: clamp(0rem, -0.395rem + 2.105vw, 1.5rem);
     font-size: var(--fs-h3);
+}
+
+.contact-item i{
+    font-size: clamp(1.5rem, 1.368rem + 0.702vw, 2rem);
 }
 
 /* End Contact */
