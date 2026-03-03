@@ -86,14 +86,14 @@ nav {
     display: flex;
     flex-direction: row;
     align-items: flex-end;
-    gap: 10px;
+    gap: 5px;
     padding: 5px 10px 0px 10px;
     width: 100%;
     box-sizing: border-box;
 }
 
 .tab {
-    display: none;
+    display: flex;
     align-items: center;
     background-color: rgb(8, 39, 97);
     gap: 10px;
@@ -108,7 +108,7 @@ nav {
 }
 
 .tab-mobile {
-    display: flex;
+    display: none;
     flex: 1;
     align-items: center;
     background-color: rgb(8, 39, 97);
@@ -133,7 +133,7 @@ nav {
 }
 
 .tabs-menu {
-    display: inline-block;
+    display: none;
     color: #00ffff;
     background-color: rgb(8, 39, 97);
     border: 1px solid #00ffff;
@@ -199,7 +199,7 @@ a:visited {
 }
 
 .window-buttons-wrapper {
-    display: none;
+    display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -234,7 +234,7 @@ a:visited {
     justify-content: space-between;
     align-items: center;
     padding: 10px 10px 10px 10px;
-    gap: clamp(0.313rem, 0.066rem + 1.316vw, 1.25rem);
+    gap: 20px;
 }
 
 input[type=text] {
@@ -252,7 +252,7 @@ input[type=text] {
 
 .nav-buttons {
     display: flex;
-    gap: clamp(0.313rem, 0.197rem + 0.614vw, 0.75rem);
+    gap: 12px;
 }
 
 .nav-btn {
@@ -388,30 +388,81 @@ input[type=text] {
 
 
 /* Media Queries */
-@media (min-width: 800px) {
+@media (max-width: 800px) {
     .window-buttons-wrapper {
-        display: flex;
+        display: none;
     }
 }
 
-@media (min-width: 600px) {
-    .tabs-row{
-        gap: 5px;
-    }
-    
-    .tab-mobile {
-        display: none;
-    }
+@media (max-width: 600px) {
 
-    .tabs-menu {
-        display: none;
+    /*  Nav */
+    .tabs-row {
+        gap: 10px;
     }
 
     .tab {
+        display: none;
+    }
+
+    .tab-mobile {
         display: flex;
     }
 
+    .tabs-menu {
+        display: inline-block;
+    }
+
+    .adress-bar {
+        gap: 5px;
+    }
+
+    .nav-buttons {
+        gap: 5px;
+    }
+
+    /*  End Nav */
 }
+
+@media (max-width: 1290px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width: 720px) {
+    :root {
+        --fs-h3: 1.2rem;
+        --fs-p: 0.8rem;
+    }
+
+    .browser-content{
+        padding: 25px;
+    }
+
+    .contact-item {
+        padding: 15px 20px 15px 20px;
+    }
+
+    .contact-item h3{
+        margin: 14px;
+        margin-bottom: 0px;
+    }
+
+    .contact-header{
+        padding-bottom: 0;
+    }
+
+    .contact-header h1 {
+        margin: 0px;
+    }
+
+    .contact-item i {
+        font-size: 1.7rem;
+    }
+}
+
+
 
 /*Only devices that can hover*/
 @media (hover: hover) {
