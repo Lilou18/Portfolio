@@ -1,11 +1,12 @@
 :root {
-    --fs-h2: ;
     --fs-h1: clamp(2rem, 1.842rem + 0.842vw, 2.6rem);
+    --fs-h2: clamp(1.4rem, 1.114rem + 0.762vw, 1.8rem);
     /* --fs-h3: 1.5rem; */
     --fs-h3: clamp(1.2rem, 1.121rem + 0.421vw, 1.5rem);
     /*24px*/
-    /* --fs-p: 1rem; */
-    --fs-p: clamp(0.8rem, 0.747rem + 0.281vw, 1rem);
+    --fs-h4:
+        /* --fs-p: 1rem; */
+        --fs-p: clamp(0.8rem, 0.747rem + 0.281vw, 1rem);
     /*20px*/
     --fs-small:
 }
@@ -21,7 +22,10 @@ html {
     margin: 0;
     padding: 0;
     background: black;
-    font-family: "Orbitron", sans-serif;
+    /* font-family: "Orbitron", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal; */
+    font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     color: #00ffff;
@@ -285,6 +289,8 @@ input[type=text] {
 
 .browser-content {
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
     flex: 1;
     min-height: 0;
     padding: clamp(0.938rem, 0.691rem + 1.316vw, 1.875rem);
@@ -310,11 +316,19 @@ input[type=text] {
 }
 
 .content-section {
-    margin-bottom: 40px;
+    /* margin-bottom: 40px; */
     background: rgba(8, 39, 97, 0.692);
     border: 2px solid #00ffff;
     border-radius: 8px;
     position: relative;
+
+
+    margin-bottom: 0px;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    position: relative;
+    justify-content: center;
 }
 
 .content-section::before {
@@ -326,20 +340,220 @@ input[type=text] {
     z-index: -1;
 }
 
-/* Contact */
-#contact .browser-content {
-    display: flex;
-    flex-direction: column;
+/*  Portfolio   */
+.title-header {
+    text-align: center;
+    position: relative;
+    border-bottom: 2px solid #00ffff;
+    padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
 }
 
-#contact .content-section {
+.title-header h1 {
+    color: #00ffff;
+    font-size: var(--fs-h1);
+    margin: 0;
+}
+
+.title-header p {
+    color: #00ffff;
+    letter-spacing: 1px;
+    font-size: var(--fs-p);
+    margin-bottom: clamp(0.313rem, -0.179rem + 1.31vw, 1rem);
+}
+
+.portfolio-body {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-columns: repeat(2, 1fr); */
+    padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
+}
+
+.project {
+    position: relative;
+    background: rgba(8, 39, 97, 0.8);
+    border: 2px solid rgba(0, 255, 255, 13);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    /* overflow: hidden;
+    height: 100%; */
+}
+
+.project-video {
+    position: relative;
+    width: 100%;
+    /* max-width: 800px; */
+    padding-top: 56.25%;
+    border-radius: 8px 8px 0px 0px;
+    overflow: hidden;
+}
+
+.ytp-title-beacon,
+.ytp-title-beacon-pulse,
+.ytp-gradient-top,
+.ytp-gradient-bottom {
+    animation: none !important;
+    transition: none !important;
+}
+
+.project-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: none;
+}
+
+.project-content {
+    padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    flex: 1;
+}
+
+.project-title {
+    font-size: var(--fs-h2);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin: clamp(0.625rem, 0.625rem + 0vw, 0.625rem) 0px;
+    /* margin-bottom: clamp(0rem, -1.116rem + 2.976vw, 1.563rem); */
+    margin-bottom: clamp(0rem, -0.67rem + 1.786vw, 0.938rem);
+}
+
+.project-role {
+    padding: 0px;
+    margin-top: clamp(0.625rem, 0.357rem + 0.714vw, 1rem);
+    margin-bottom: 0px;
+}
+
+.project-role li {
+    display: inline-block;
+    background: rgba(0, 255, 255, 0.2);
+    list-style: none;
+    border: 1px solid #00ffff;
+    border-radius: 15px;
+    padding: 4px 12px;
+    font-size: var(--fs-p);
+    margin-right: 10px;
+    margin-bottom: 7px;
+}
+
+.project-role li:last-child {
+    margin-right: 0px;
+}
+
+.project-details {
+    letter-spacing: 1px;
+    font-size: var(--fs-p);
+}
+
+.project-details strong {
+    flex-shrink: 0;
+}
+
+.project-details p {
+    display: flex;
+    gap: 4px;
+}
+
+.project-details span {
+    display: inline;
+    color: #87adf3;
+}
+
+.project-tasks {
+    letter-spacing: 1px;
+}
+
+.project-tasks p {
+    font-weight: bold;
+    font-size: var(--fs-p);
+}
+
+.project-tasks ul {
+    padding-left: clamp(1.25rem, 0.357rem + 2.381vw, 2.5rem);
+}
+
+.project-tasks li::marker {
+    color: #00ffff;
+}
+
+.project-tasks li {
+    color: #87adf3;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+    line-height: 1.4;
+    font-size: var(--fs-p);
+}
+
+.project-description-label {
+    font-size: var(--fs-p);
+    letter-spacing: 1px;
+    margin-top: clamp(0rem, -0.714rem + 1.905vw, 1rem);
+    margin-bottom: 16px;
+}
+
+.project-description {
+    margin-top: 0px;
+    color: #87adf3;
+    font-size: var(--fs-p);
+    line-height: 1.4;
+}
+
+.project-skills {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+.skill-tag {
+    background: rgba(0, 255, 255, 0.1);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    border-radius: 2px;
+    padding: 4px 12px;
+    font-size: 0.85em;
+    letter-spacing: 1px;
+}
+
+.project-links {
+
+    display: flex;
+    flex-direction: row;
+    border-top: 1px solid #00ffff;
+    gap: 16px;
+    padding-top: 20px;
+}
+
+.project-link {
+    color: #00ffff;
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    padding: 8px 15px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: var(--fs-p);
+}
+
+/*  End Portfolio   */
+
+/* Contact */
+/* #contact .browser-content {
+    display: flex;
+    flex-direction: column;
+} */
+
+/* #contact .content-section {
     flex: 1;
     margin-bottom: 0px;
     display: flex;
     flex-direction: column;
     position: relative;
     justify-content: center;
-}
+} */
 
 .contact-header {
     letter-spacing: 1px;
@@ -437,6 +651,13 @@ input[type=text] {
 @media(min-width: 700px) {
     .contact-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media(min-width: 1200px) {
+    .portfolio-body {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
     }
 }
 
