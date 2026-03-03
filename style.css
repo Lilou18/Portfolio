@@ -1,9 +1,10 @@
 :root {
     --fs-h2: ;
-    --fs-h1: clamp(1rem, 7vw + 1rem, 3rem);
+    --fs-h1: clamp(2rem, 1.842rem + 0.842vw, 2.6rem);
     --fs-h3: 1.5rem;
     /*24px*/
-    --fs-p: 1rem;
+    /* --fs-p: 1rem; */
+    --fs-p: clamp(0.8rem, 0.747rem + 0.281vw, 1rem);
     /*20px*/
     --fs-small:
 }
@@ -285,7 +286,7 @@ input[type=text] {
     box-sizing: border-box;
     flex: 1;
     min-height: 0;
-    padding: 30px;
+    padding: clamp(0.938rem, 0.691rem + 1.316vw, 1.875rem);
     position: relative;
     overflow-y: auto;
     overflow-x: hidden;
@@ -344,12 +345,19 @@ input[type=text] {
     color: #00ffff;
     text-align: center;
     padding: 30px;
+    padding-bottom: clamp(0rem, -0.493rem + 2.632vw, 1.875rem);
     position: relative;
 }
 
 .contact-header h1 {
     font-size: var(--fs-h1);
-    margin-bottom: 50px;
+    margin: clamp(0rem, -0.461rem + 2.456vw, 1.75rem);
+    margin-bottom: clamp(0rem, -0.822rem + 4.386vw, 3.125rem);
+    /* margin-bottom: 50px; */
+}
+
+.contact-header p {
+    font-size: var(--fs-p);
 }
 
 .contact-grid {
