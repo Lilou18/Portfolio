@@ -374,10 +374,12 @@ input[type=text] {
 }
 
 .contact-grid a {
+    display: flex;
     text-decoration: none;
 }
 
 .contact-item {
+    flex: 1;
     letter-spacing: 1px;
     color: #00ffff;
     text-align: center;
@@ -399,7 +401,7 @@ input[type=text] {
     font-size: var(--fs-h3);
 }
 
-.contact-item i{
+.contact-item i {
     font-size: clamp(1.5rem, 1.368rem + 0.702vw, 2rem);
 }
 
@@ -414,10 +416,10 @@ input[type=text] {
 }
 
 @media (min-width: 600px) {
-    .tabs-row{
+    .tabs-row {
         gap: 5px;
     }
-    
+
     .tab-mobile {
         display: none;
     }
@@ -430,6 +432,12 @@ input[type=text] {
         display: flex;
     }
 
+}
+
+@media(min-width: 700px) {
+    .contact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 /*Only devices that can hover*/
