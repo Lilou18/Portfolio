@@ -5,10 +5,20 @@
     --fs-h3: clamp(1.2rem, 1.121rem + 0.421vw, 1.5rem);
     /*24px*/
     /* --fs-h4: */
-        /* --fs-p: 1rem; */
+    /* --fs-p: 1rem; */
     --fs-p: clamp(0.8rem, 0.747rem + 0.281vw, 1rem);
     /*20px*/
     /* --fs-small:; */
+
+    --color-darker-purple: #0f0e47;
+    --color-darker-purple-rgb: 15, 14, 71;
+    --color-dark-purple: #272757;
+    --color-dark-purple-rgb: 39, 39, 87;
+    --light-purple: #505081;
+    --light-purple-rgb: 80, 80, 129;
+    --lighter-purple: #9797aa;
+    --lighter-purple-rgb: 134, 134, 172;
+    --color-scroll: rgb(25, 25, 57);
 }
 
 *,
@@ -28,7 +38,7 @@ html {
     font-family: "Inter", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
-    color: #00ffff;
+    color: var(--lighter-purple);
 }
 
 body {
@@ -43,10 +53,10 @@ body {
 #contact,
 nav {
     position: relative;
-    background: rgba(0, 50, 100, 0.85);
-    border: 2px solid #00ffff;
+    background: rgba(27, 27, 57, 0.85);
+    border: 2px solid var(--light-purple);
     box-shadow:
-        0 0 30px rgba(0, 255, 255, 0.464),
+        0 0 30px rgba(134, 134, 172, 0.464),
         inset 0 0 20px rgba(0, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
@@ -85,7 +95,7 @@ nav {
     flex-direction: column;
 
     /* padding: 5px 5px; */
-    background: linear-gradient(90deg, rgba(0, 255, 255, 0.2) 0%, rgba(0, 100, 255, 0.1) 100%);
+    /* background: linear-gradient(90deg, rgba(0, 255, 255, 0.2) 0%, rgba(0, 100, 255, 0.1) 100%); */
 }
 
 .tabs-row {
@@ -101,11 +111,11 @@ nav {
 .tab {
     display: none;
     align-items: center;
-    background-color: rgb(8, 39, 97);
+    background-color: var(--color-dark-purple);
     gap: 10px;
     text-decoration: none;
-    color: #00ffff;
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    color: var(--lighter-purple);
+    border: 1px solid rgba(80, 80, 129, 1);
     border-bottom: none;
     border-radius: 8px 8px 0 0;
     letter-spacing: 1px;
@@ -120,7 +130,7 @@ nav {
     background-color: rgb(8, 39, 97);
     gap: 10px;
     text-decoration: none;
-    color: #00ffff;
+    color: var(--lighter-purple);
     border: 1px solid rgba(0, 255, 255, 0.3);
     border-bottom: none;
     border-radius: 8px 8px 0 0;
@@ -133,16 +143,16 @@ nav {
 }
 
 .active-tab {
-    border-color: #00ffff;
-    border-bottom: 3px solid #00ffff;
+    border-color: var(--light-purple);
+    border-bottom: 3px solid var(--light-purple);
     border-width: 3px;
 }
 
 .tabs-menu {
     display: inline-block;
-    color: #00ffff;
+    color: var(--lighter-purple);
     background-color: rgb(8, 39, 97);
-    border: 1px solid #00ffff;
+    border: 1px solid var(--light-purple);
     border-radius: 6px 6px 0px 0px;
     border-bottom: none;
     height: 35px;
@@ -158,7 +168,7 @@ nav {
     right: -2px;
     background: rgba(4, 20, 50, 1);
     box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
-    border: 1px solid #00ffff;
+    border: 1px solid var(--light-purple);
     border-top: none;
     border-radius: 0 0 10px 10px;
     animation: dropDown 0.2s ease;
@@ -215,9 +225,9 @@ a:visited {
 
 .window-button {
     background: transparent;
-    border: 1px solid #00ffff;
+    border: 1px solid var(--light-purple);
     border-radius: 6px;
-    color: #00ffff;
+    color: var(--lighter-purple);
     font-size: var(--fs-p);
     display: flex;
     align-items: center;
@@ -229,7 +239,7 @@ a:visited {
 }
 
 .nav-separator {
-    border: 1px solid #00ffff;
+    border: 1px solid var(--light-purple);
     width: 100%;
     margin: 0;
 }
@@ -245,8 +255,8 @@ a:visited {
 
 input[type=text] {
     background: transparent;
-    border: 1px solid #00ffff;
-    color: #00ffff;
+    border: 1px solid var(--light-purple);
+    color: var(--lighter-purple);
     border-radius: 18px;
     height: 25px;
     font-size: 0.9rem;
@@ -263,9 +273,9 @@ input[type=text] {
 
 .nav-btn {
     background: transparent;
-    border: 1px solid #00ffff;
+    border: 1px solid var(--light-purple);
     border-radius: 6px;
-    color: #00ffff;
+    color: var(--lighter-purple);
     font-size: var(--fs-p);
     display: flex;
     align-items: center;
@@ -306,19 +316,19 @@ input[type=text] {
 }
 
 .browser-content::-webkit-scrollbar-track {
-    background: rgba(0, 255, 255, 0.1);
+    background: var(--color-darker-purple);
     border-radius: 10px;
 }
 
 .browser-content::-webkit-scrollbar-thumb {
-    background: #00ffff;
+    background: var(--light-purple);
     border-radius: 10px;
 }
 
 .content-section {
     /* margin-bottom: 40px; */
-    background: rgba(8, 39, 97, 0.692);
-    border: 2px solid #00ffff;
+    background: rgba(var(--color-dark-purple), 0.692);
+    border: 2px solid var(--light-purple);
     border-radius: 8px;
     position: relative;
 
@@ -335,7 +345,7 @@ input[type=text] {
     content: '';
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, #00ffff, rgb(0, 183, 255), #00ffff);
+    background: linear-gradient(180deg, var(--color-dark-purple), var(--color-darker-purple), var(--color-dark-purple));
     border-radius: 8px;
     z-index: -1;
 }
@@ -344,18 +354,18 @@ input[type=text] {
 .title-header {
     text-align: center;
     position: relative;
-    border-bottom: 2px solid #00ffff;
+    border-bottom: 2px solid var(--light-purple);
     padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
 }
 
 .title-header h1 {
-    color: #00ffff;
+    color: var(--lighter-purple);
     font-size: var(--fs-h1);
     margin: 0;
 }
 
 .title-header p {
-    color: #00ffff;
+    color: var(--lighter-purple);
     letter-spacing: 1px;
     font-size: var(--fs-p);
     margin-bottom: clamp(0.313rem, -0.179rem + 1.31vw, 1rem);
@@ -370,8 +380,8 @@ input[type=text] {
 
 .project {
     position: relative;
-    background: rgba(8, 39, 97, 0.8);
-    border: 2px solid rgba(0, 255, 255, 13);
+    background: rgba(var(--color-darker-purple-rgb), 0.8);
+    border: 2px solid rgba(var(--light-purple-rgb), 13);
     border-radius: 12px;
     display: flex;
     flex-direction: column;
@@ -415,7 +425,7 @@ input[type=text] {
 }
 
 .project-header {
-    border-bottom: 1px solid #00ffff;
+    border-bottom: 1px solid var(--light-purple);
 }
 
 .project-title {
@@ -429,7 +439,7 @@ input[type=text] {
     /* background-image: linear-gradient(to bottom right, rgb(45, 31, 17), rgb(19, 20, 20)); */
     /* background-image: repeating-linear-gradient(0deg, rgba(78, 111, 111, 0.3), rgba(78, 111, 111, 0.3) 1px, transparent 1px 60px),
         repeating-linear-gradient(90deg, rgba(78, 111, 111, 0.3), rgba(78, 111, 111, 0.3) 1px, #ffffff00 1px, #ffffff00 60px), linear-gradient(to bottom right, rgb(45, 31, 17), rgb(19, 20, 20)); */
-       
+
 }
 
 .project-role {
@@ -440,9 +450,10 @@ input[type=text] {
 
 .project-role li {
     display: inline-block;
-    background: rgba(0, 255, 255, 0.2);
+    background: rgba(var(--lighter-purple-rgb), 0.2);
+    color: var(--lighter-purple);
     list-style: none;
-    border: 1px solid #00ffff;
+    border: 1px solid var(--light-purple);
     border-radius: 15px;
     padding: 4px 12px;
     font-size: var(--fs-p);
@@ -470,7 +481,7 @@ input[type=text] {
 
 .project-details span {
     display: inline;
-    color: #87adf3;
+    color: var(--lighter-purple);
 }
 
 .project-tasks {
@@ -487,11 +498,11 @@ input[type=text] {
 }
 
 .project-tasks li::marker {
-    color: #00ffff;
+    color: var(--lighter-purple);
 }
 
 .project-tasks li {
-    color: #87adf3;
+    color: var(--lighter-purple);
     letter-spacing: 1px;
     padding-bottom: 10px;
     line-height: 1.4;
@@ -507,7 +518,7 @@ input[type=text] {
 
 .project-description {
     margin-top: 0px;
-    color: #87adf3;
+    color: var(--lighter-purple);
     font-size: var(--fs-p);
     line-height: 1.4;
 }
@@ -521,8 +532,8 @@ input[type=text] {
 }
 
 .skill-tag {
-    background: rgba(0, 255, 255, 0.1);
-    border: 1px solid rgba(0, 255, 255, 0.3);
+    background: rgba(var(--lighter-purple-rgb), 0.2);
+    border: 1px solid rgba(var(--lighter-purple-rgb), 0.5);
     border-radius: 2px;
     padding: 4px 12px;
     font-size: 0.85em;
@@ -533,14 +544,14 @@ input[type=text] {
 
     display: flex;
     flex-direction: row;
-    border-top: 1px solid #00ffff;
+    border-top: 1px solid var(--light-purple);
     gap: 16px;
     padding-top: 20px;
 }
 
 .project-link {
-    color: #00ffff;
-    border: 2px solid rgba(0, 255, 255, 0.3);
+    color: var(--lighter-purple);
+    border: 2px solid rgba(var(--lighter-purple-rgb), 0.3);
     padding: 8px 15px;
     border-radius: 25px;
     text-decoration: none;
@@ -566,7 +577,7 @@ input[type=text] {
 
 .contact-header {
     letter-spacing: 1px;
-    color: #00ffff;
+    color: var(--lighter-purple);
     text-align: center;
     padding: 30px;
     padding: clamp(0.625rem, 0.296rem + 1.754vw, 1.875rem);
@@ -604,9 +615,9 @@ input[type=text] {
 .contact-item {
     flex: 1;
     letter-spacing: 1px;
-    color: #00ffff;
+    color: var(--lighter-purple);
     text-align: center;
-    border: 1px solid #00ffff;
+    border: 1px solid var(--light-purple);
     border-radius: 12px;
     /* padding: 50px 30px 50px 30px; */
     padding: clamp(0.938rem, 0.362rem + 3.07vw, 3.125rem) clamp(1.25rem, 1.086rem + 0.877vw, 1.875rem);
@@ -675,9 +686,10 @@ input[type=text] {
 
     /*  Nav */
     .tab:hover {
-        background: rgba(0, 255, 255, 0.508);
+        /* background: rgba(0, 255, 255, 0.508); */
         border-radius: 8px 8px 8px 8px;
-        color: rgb(8, 39, 97);
+        background: var(--lighter-purple);
+        color: var(--color-dark-purple);
     }
 
     .dropdown-tab:hover {
@@ -691,7 +703,7 @@ input[type=text] {
     /*  End Nav */
 
     .browser-content::-webkit-scrollbar-thumb:hover {
-        background: rgba(0, 255, 255, 0.8);
+        background: var(--lighter-purple);
     }
 
     .cv-icons:hover {
@@ -700,12 +712,12 @@ input[type=text] {
     }
 
     .project-link:hover {
-        background: rgba(0, 255, 255, 0.4);
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        background: rgba(var(--lighter-purple-rgb), 0.4);
+        box-shadow: 0 0 15px rgba(var(--light-purple-rgb), 0.4);
     }
 
     .contact-item:hover {
-        background: rgba(0, 255, 255, 0.4);
-        box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+        background: rgba(var(--lighter-purple-rgb), 0.4);
+        box-shadow: 0 0 15px rgba(var(--light-purple-rgb), 0.4);
     }
 }
