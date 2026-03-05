@@ -21,6 +21,7 @@
     --color-scroll: rgb(25, 25, 57);
     --color-text: 255, 255, 255;
     --color-text-grey: rgb(255, 255, 255);
+    --color-hover-rgb: 64, 64, 143;
 }
 
 *,
@@ -147,7 +148,7 @@ nav {
 .active-tab {
     border-color: var(--light-purple);
     border-bottom: 3px solid var(--light-purple);
-    border-width: 3px;
+    border-width: 4px;
 }
 
 .tabs-menu {
@@ -387,11 +388,12 @@ input[type=text] {
     grid-template-columns: 1fr;
     /* grid-template-columns: repeat(2, 1fr); */
     padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
+    gap: 20px;
 }
 
 .project {
     position: relative;
-    background: rgba(var(--color-darker-purple-rgb), 0.8);
+    background: rgba(var(--color-darker-purple-rgb), 1);
     border: 2px solid rgba(var(--light-purple-rgb), 13);
     border-radius: 12px;
     display: flex;
@@ -433,20 +435,24 @@ input[type=text] {
     flex-direction: column;
     min-height: 0;
     flex: 1;
+    background: linear-gradient(180deg, rgba(80, 80, 180, 0.5) 0%, transparent 100%);
 }
 
 .project-header {
-    border-bottom: 1px solid var(--light-purple);
+    background: linear-gradient(0deg, transparent, #a0a0ff5b, transparent);
 }
 
 .project-title {
     font-size: var(--fs-h2);
     font-weight: bold;
     letter-spacing: 1px;
+    text-transform: uppercase;
+    position: relative;
+    
     /* margin: clamp(0.625rem, 0.625rem + 0vw, 0.625rem) 0px;
     margin-bottom: clamp(0rem, -0.67rem + 1.786vw, 0.938rem); */
     margin: 0px;
-    padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
+    /* padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem); */
     /* background-image: linear-gradient(to bottom right, rgb(45, 31, 17), rgb(19, 20, 20)); */
     /* background-image: repeating-linear-gradient(0deg, rgba(78, 111, 111, 0.3), rgba(78, 111, 111, 0.3) 1px, transparent 1px 60px),
         repeating-linear-gradient(90deg, rgba(78, 111, 111, 0.3), rgba(78, 111, 111, 0.3) 1px, #ffffff00 1px, #ffffff00 60px), linear-gradient(to bottom right, rgb(45, 31, 17), rgb(19, 20, 20)); */
@@ -477,20 +483,34 @@ input[type=text] {
 }
 
 .project-details {
+    display: flex;
+    flex-direction: row;
+    gap: 0px clamp(1.25rem, 0.757rem + 2.632vw, 3.125rem);
+    /*20 to 120*/
     letter-spacing: 1px;
     font-size: var(--fs-p);
-}
-
-.project-details strong {
-    flex-shrink: 0;
+    flex-wrap: wrap;
+    border-bottom: 1px solid var(--light-purple);
 }
 
 .project-details p {
     display: flex;
+    flex-direction: column;
     gap: 4px;
+
 }
 
-.project-details span {
+/* .project-details span {
+    display: inline;
+    color: rgb(var(--color-text));
+} */
+.project-detail-label {
+    text-transform: uppercase;
+    flex-shrink: 0;
+    color: var(--lighter-purple);
+}
+
+.project-detail-value {
     display: inline;
     color: rgb(var(--color-text));
 }
@@ -500,7 +520,9 @@ input[type=text] {
 }
 
 .project-tasks p {
-    font-weight: bold;
+    /* font-weight: bold; */
+    text-transform: uppercase;
+    color: var(--lighter-purple);
     font-size: var(--fs-p);
 }
 
@@ -509,6 +531,7 @@ input[type=text] {
 }
 
 .project-tasks li::marker {
+
     color: rgb(var(--color-text));
 }
 
@@ -525,6 +548,8 @@ input[type=text] {
     letter-spacing: 1px;
     margin-top: clamp(0rem, -0.714rem + 1.905vw, 1rem);
     margin-bottom: 16px;
+    text-transform: uppercase;
+    color: var(--lighter-purple);
 }
 
 .project-description {
@@ -690,7 +715,6 @@ input[type=text] {
 @media(min-width: 1200px) {
     .portfolio-body {
         grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
     }
 }
 
@@ -725,12 +749,12 @@ input[type=text] {
     }
 
     .project-link:hover {
-        background: rgba(var(--lighter-purple-rgb), 0.4);
-        box-shadow: 0 0 15px rgba(var(--light-purple-rgb), 0.4);
+        background: rgb(var(--color-hover-rgb));
+        box-shadow: 0 0 15px rgba(var(--light-purple-rgb), 1);
     }
 
     .contact-item:hover {
-        background: rgba(var(--lighter-purple-rgb), 0.4);
+        background: rgb(var(--color-hover-rgb));
         box-shadow: 0 0 15px rgba(var(--light-purple-rgb), 0.4);
     }
 }
