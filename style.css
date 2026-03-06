@@ -402,6 +402,11 @@ input[type=text] {
     height: 100%; */
 }
 
+.project > *:not(.project-video) {
+    padding-left: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
+    padding-right: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
+}
+
 .project-video {
     position: relative;
     width: 100%;
@@ -429,14 +434,14 @@ input[type=text] {
     border: none;
 }
 
-.project-content {
+/* .project-content {
     padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
     display: flex;
     flex-direction: column;
     min-height: 0;
     flex: 1;
     background: linear-gradient(180deg, rgba(80, 80, 180, 0.5) 0%, transparent 100%);
-}
+} */
 
 .project-header {
     background: linear-gradient(0deg, transparent, #a0a0ff5b, transparent);
@@ -448,10 +453,11 @@ input[type=text] {
     letter-spacing: 1px;
     text-transform: uppercase;
     position: relative;
-    
+
     /* margin: clamp(0.625rem, 0.625rem + 0vw, 0.625rem) 0px;
     margin-bottom: clamp(0rem, -0.67rem + 1.786vw, 0.938rem); */
     margin: 0px;
+    padding-top: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
     /* padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem); */
     /* background-image: linear-gradient(to bottom right, rgb(45, 31, 17), rgb(19, 20, 20)); */
     /* background-image: repeating-linear-gradient(0deg, rgba(78, 111, 111, 0.3), rgba(78, 111, 111, 0.3) 1px, transparent 1px 60px),
@@ -562,9 +568,9 @@ input[type=text] {
 .project-skills {
     display: flex;
     flex-wrap: wrap;
-    margin-top: auto;
     gap: 8px;
     margin-bottom: 20px;
+    align-self: start;
 }
 
 .skill-tag {
@@ -583,6 +589,7 @@ input[type=text] {
     border-top: 1px solid var(--light-purple);
     gap: 16px;
     padding-top: 20px;
+    padding-bottom: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
 }
 
 .project-link {
@@ -715,6 +722,14 @@ input[type=text] {
 @media(min-width: 1200px) {
     .portfolio-body {
         grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        align-items: start;
+    }
+
+    .project {
+        display: grid;
+        grid-template-rows: subgrid;
+        grid-row: span 9;
     }
 }
 
