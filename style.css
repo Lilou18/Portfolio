@@ -6,7 +6,7 @@
     /*24px*/
     /* --fs-h4: */
     /* --fs-p: 1rem; */
-    --fs-p: clamp(0.8rem, 0.747rem + 0.281vw, 1rem);
+    --fs-p: clamp(0.8rem, 0.721rem + 0.421vw, 1.1rem);
     /*20px*/
     /* --fs-small:; */
 
@@ -393,6 +393,8 @@ input[type=text] {
     flex-direction: column;
     /* overflow: hidden;
     height: 100%; */
+    gap: clamp(0rem, -0.164rem + 0.877vw, 0.625rem);
+    background: linear-gradient(0deg, var(--color-darker-purple), var(--color-darker-purple), #a0a0ff18, var(--color-darker-purple), var(--color-darker-purple), var(--color-darker-purple));
 }
 
 .project>*:not(.project-video) {
@@ -446,16 +448,8 @@ input[type=text] {
     letter-spacing: 1px;
     text-transform: uppercase;
     position: relative;
-
-    /* margin: clamp(0.625rem, 0.625rem + 0vw, 0.625rem) 0px;
-    margin-bottom: clamp(0rem, -0.67rem + 1.786vw, 0.938rem); */
     margin: 0px;
     padding-top: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
-    /* padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem); */
-    /* background-image: linear-gradient(to bottom right, rgb(45, 31, 17), rgb(19, 20, 20)); */
-    /* background-image: repeating-linear-gradient(0deg, rgba(78, 111, 111, 0.3), rgba(78, 111, 111, 0.3) 1px, transparent 1px 60px),
-        repeating-linear-gradient(90deg, rgba(78, 111, 111, 0.3), rgba(78, 111, 111, 0.3) 1px, #ffffff00 1px, #ffffff00 60px), linear-gradient(to bottom right, rgb(45, 31, 17), rgb(19, 20, 20)); */
-
 }
 
 .project-role {
@@ -598,19 +592,6 @@ input[type=text] {
 /*  End Portfolio   */
 
 /* Contact */
-/* #contact .browser-content {
-    display: flex;
-    flex-direction: column;
-} */
-
-/* #contact .content-section {
-    flex: 1;
-    margin-bottom: 0px;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    justify-content: center;
-} */
 
 .contact-header {
     letter-spacing: 1px;
@@ -700,7 +681,7 @@ input[type=text] {
         display: none;
     }
 
-    .tabs-dropdown{
+    .tabs-dropdown {
         display: none;
     }
 
