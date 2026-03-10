@@ -12,6 +12,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Lilou Blanchette</title>
     <script src="browserTabs.js" defer></script>
+    <script>
+        function copyPhone() {
+            navigator.clipboard.writeText('+14385277030');
+            const tooltip = document.getElementById('copyTooltip');
+            tooltip.textContent = 'Copié!';
+            setTimeout(() => {
+                tooltip.innerHTML = 'Copier <i class="fa-solid fa-copy copy-icon"></i>';
+            }, 2000);
+        }
+    </script>
 </head>
 
 <body>
@@ -111,11 +121,13 @@
                             <p>https://github.com/Lilou18</p>
                         </div>
                     </a>
-                    <a href="tel:+14385277030" target="_blank">
-                        <div class="contact-item">
+                    <a>
+                        <div class="contact-item" id="phoneItem" onclick="copyPhone()">
                             <i class="fa-solid fa-phone fa-2xl"></i>
                             <h3>Téléphone</h3>
                             <p>(+1) 438-527-7030</p>
+                            <span class="copy-tooltip" id="copyTooltip">Copier <i
+                                    class="fa-solid fa-copy copy-icon"></i></span>
                         </div>
                     </a>
                 </div>
