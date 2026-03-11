@@ -11,17 +11,7 @@
     <script src="https://kit.fontawesome.com/a20723a298.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact - Lilou Blanchette</title>
-    <script src="browserTabs.js" defer></script>
-    <script>
-        function copyPhone() {
-            navigator.clipboard.writeText('+14385277030');
-            const tooltip = document.getElementById('copyTooltip');
-            tooltip.textContent = 'Copié!';
-            setTimeout(() => {
-                tooltip.innerHTML = 'Copier <i class="fa-solid fa-copy copy-icon"></i>';
-            }, 2000);
-        }
-    </script>
+    <script src="UIManager.js" defer></script>
 </head>
 
 <body>
@@ -101,10 +91,12 @@
                 </div>
                 <div class="contact-grid">
                     <a href="mailto:blanchette.lilou@gmail.com">
-                        <div class="contact-item">
+                        <div class="contact-item" data-copy="blanchette.lilou@gmail.com">
                             <i class="fa-solid fa-envelope fa-2xl"></i>
                             <h3>Email</h3>
                             <p>blanchette.lilou@gmail.com</p>
+                            <span class="copy-tooltip" id="copyTooltip">Copier <i
+                                    class="fa-solid fa-copy copy-icon"></i></span>
                         </div>
                     </a>
                     <a href="https://www.linkedin.com/in/liloublanchette/" target="_blank">
@@ -122,7 +114,7 @@
                         </div>
                     </a>
                     <a>
-                        <div class="contact-item" id="phoneItem" onclick="copyPhone()">
+                        <div class="contact-item" data-copy="(+1)438-527-7030">
                             <i class="fa-solid fa-phone fa-2xl"></i>
                             <h3>Téléphone</h3>
                             <p>(+1) 438-527-7030</p>
