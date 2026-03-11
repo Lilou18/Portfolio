@@ -10,6 +10,7 @@
     /*20px*/
     /* --fs-small:; */
 
+    --color-dark-dark-purple: 10, 9, 46;
     --color-darker-purple: #0f0e47;
     --color-darker-purple-rgb: 15, 14, 71;
     --color-dark-purple: #272757;
@@ -20,7 +21,7 @@
     --lighter-purple-rgb: 134, 134, 172;
     --color-scroll: rgb(25, 25, 57);
     --color-text: 255, 255, 255;
-    --color-hover-rgb: 64, 64, 143;
+    --color-hover-rgb: rgb(72, 67, 143);
 }
 
 *,
@@ -142,6 +143,7 @@ nav {
     border-color: var(--light-purple);
     border-bottom: 3px solid var(--light-purple);
     border-width: 4px;
+    background-color: rgb(72, 67, 143);
 }
 
 .tabs-menu {
@@ -381,7 +383,7 @@ input[type=text] {
     grid-template-columns: 1fr;
     /* grid-template-columns: repeat(2, 1fr); */
     padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
-    gap: 20px;
+    gap: clamp(1.25rem, 0.921rem + 1.754vw, 2.5rem);
 }
 
 .project {
@@ -395,6 +397,7 @@ input[type=text] {
     height: 100%; */
     gap: clamp(0rem, -0.164rem + 0.877vw, 0.625rem);
     background: linear-gradient(0deg, var(--color-darker-purple), var(--color-darker-purple), #a0a0ff18, var(--color-darker-purple), var(--color-darker-purple), var(--color-darker-purple));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project>*:not(.project-video) {
@@ -450,6 +453,12 @@ input[type=text] {
     position: relative;
     margin: 0px;
     padding-top: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
+    padding-bottom: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
+    /* background-image: linear-gradient(45deg,rgba(117, 117, 189, 1) 0%, rgba(96, 96, 191, 1) 50%, rgba(110, 110, 224, 1) 77%); */
+    background-image:
+        radial-gradient(circle, rgba(72, 67, 143, 1) 50%, rgba(49, 45, 102, 1) 100%);
+    margin-top: calc(-1 * clamp(0rem, -0.164rem + 0.877vw, 0.625rem));
+    border-bottom: 3px solid var(--light-purple);
 }
 
 .project-role {
@@ -586,7 +595,16 @@ input[type=text] {
     border-radius: 25px;
     text-decoration: none;
     font-size: var(--fs-p);
-    box-shadow: 0 1px 6px rgb(0, 0, 0);
+    transition: transform 250ms, box-shadow 250ms;
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+        0 2px 0 0 rgb(var(--color-dark-dark-purple)),
+        0 4px 0 0 rgb(var(--color-dark-dark-purple)),
+        0 6px 0 0 rgb(var(--color-dark-dark-purple)),
+        0 8px 0 0 rgb(var(--color-dark-dark-purple)),
+        0 8px 16px 0 rgba(var(--color-dark-dark-purple), 0.5);
+    overflow: hidden;
+    background-image: linear-gradient(to bottom right, rgba(var(--color-darker-purple-rgb), 0.5), rgb(72, 67, 143));
 }
 
 /*  End Portfolio   */
@@ -630,6 +648,7 @@ input[type=text] {
     text-decoration: none;
 }
 
+/*https://www.sliderrevolution.com/resources/css-button-hover-effects/*/
 .contact-item {
     flex: 1;
     letter-spacing: 1px;
@@ -639,7 +658,17 @@ input[type=text] {
     border-radius: 12px;
     /* padding: 50px 30px 50px 30px; */
     padding: clamp(0.938rem, 0.362rem + 3.07vw, 3.125rem) clamp(1.25rem, 1.086rem + 0.877vw, 1.875rem);
-    box-shadow: 0 1px 6px rgb(0, 0, 0);
+    transition: transform 250ms, box-shadow 250ms;
+    box-shadow:
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+        0 2px 0 0 rgb(var(--color-dark-dark-purple)),
+        0 4px 0 0 rgb(var(--color-dark-dark-purple)),
+        0 6px 0 0 rgb(var(--color-dark-dark-purple)),
+        0 8px 0 0 rgb(var(--color-dark-dark-purple)),
+        0 8px 16px 0 rgba(var(--color-dark-dark-purple), 0.5);
+    overflow: hidden;
+    /* background: linear-gradient(90deg, rgba(72, 67, 143, 1) 0%, rgba(72, 67, 143, 0) 100%); */
+    background-image: linear-gradient(to bottom right, rgba(var(--color-darker-purple-rgb), 0.5), rgb(72, 67, 143));
 }
 
 .contact-item p {
@@ -675,10 +704,6 @@ input[type=text] {
     opacity: 0;
     transition: opacity 0.2s;
     pointer-events: none;
-}
-
-#phoneItem:hover .copy-tooltip {
-    opacity: 1;
 }
 
 .copy-tooltip i {
@@ -770,12 +795,47 @@ input[type=text] {
     }
 
     .project-link:hover {
-        background: rgb(var(--color-hover-rgb));
-        box-shadow: 0 0 15px rgba(var(--light-purple-rgb), 1);
+        /* box-shadow:
+            0 0 10px rgba(var(--light-purple-rgb), 1),
+            0 0 10px rgba(var(--lighter-purple-rgb), 1); */
+        background: var(--color-hover-rgb);
+        transform: translateY(4px);
+        box-shadow:
+            inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+            0 1px 0 0 rgb(var(--color-dark-dark-purple)),
+            0 2px 0 0 rgb(var(--color-dark-dark-purple)),
+            0 3px 0 0 rgb(var(--color-dark-dark-purple)),
+            0 4px 0 0 rgb(var(--color-dark-dark-purple)),
+            0 4px 8px 0 rgba(var(--color-dark-dark-purple), 0.5);
     }
 
     .contact-item:hover {
-        background: rgb(var(--color-hover-rgb));
-        box-shadow: 0 0 15px rgba(var(--light-purple-rgb), 0.4);
+        background: var(--color-hover-rgb);
+        transform: translateY(4px);
+        box-shadow:
+            inset 0 1px 0 0 rgba(255, 255, 255, 0.3),
+            0 1px 0 0 rgb(var(--color-dark-dark-purple)),
+            0 2px 0 0 rgb(var(--color-dark-dark-purple)),
+            0 3px 0 0 rgb(var(--color-dark-dark-purple)),
+            0 4px 0 0 rgb(var(--color-dark-dark-purple)),
+            0 4px 8px 0 rgba(var(--color-dark-dark-purple), 0.5);
+    }
+
+    /* .contact-item:hover {
+         background: var(--color-hover-rgb);
+        box-shadow:
+            0 12px 40px rgba(var(--light-purple-rgb), 1),
+            0 0 20px rgba(var(--lighter-purple-rgb), 1);
+    } */
+
+    #phoneItem:hover .copy-tooltip {
+        opacity: 1;
+    }
+
+    .project:hover {
+        transform: translateY(-8px);
+        box-shadow:
+            0 12px 40px rgba(var(--light-purple-rgb), 1),
+            0 0 20px rgba(var(--lighter-purple-rgb), 1);
     }
 }
