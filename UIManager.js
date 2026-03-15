@@ -22,25 +22,14 @@ class UIManager {
             item.addEventListener("click", () => {
                 navigator.clipboard.writeText(item.dataset.copy);
                 const tooltip = item.querySelector('.copy-tooltip');
-                tooltip.textContent = 'Copié!';
-                setTimeout(() => {
-                    tooltip.innerHTML = 'Copier <i class="fa-solid fa-copy copy-icon"></i>';
-                }, 2000);
+                if (tooltip != null) {
+                    tooltip.textContent = 'Copié!';
+                    setTimeout(() => {
+                        tooltip.innerHTML = 'Copier <i class="fa-solid fa-copy copy-icon"></i>';
+                    }, 2000);
+                }
             });
         });
-
-        // function copyPhone() {
-        //     navigator.clipboard.writeText('+14385277030');
-        //     const tooltip = document.getElementById('copyTooltip');
-        //     tooltip.textContent = 'Copié!';
-        //     setTimeout(() => {
-        //         tooltip.innerHTML = 'Copier <i class="fa-solid fa-copy copy-icon"></i>';
-        //     }, 2000);
-        // }
-    }
-
-    openDropdown() {
-
     }
 
     closeDropdown() {
