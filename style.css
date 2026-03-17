@@ -533,6 +533,7 @@ main {
     grid-template-columns: repeat(auto-fit, minmax(clamp(100px, 10vw, 120px), 1fr));
     gap: 20px;
     justify-content: center;
+    animation-delay: var(--delay);
 }
 
 .icon-grid-item {
@@ -549,6 +550,15 @@ main {
     height: auto;
     aspect-ratio: 1 / 1;
     object-fit: cover;
+}
+
+/* ANIMATION */
+.in-view{
+    animation: fadeIn 1s var(--delay, 0s) both;
+}
+
+.out-of-view{
+    opacity: 0;
 }
 
 /*  Portfolio   */
@@ -954,6 +964,12 @@ main {
         display: grid;
         grid-template-rows: subgrid;
         grid-row: span 9;
+    }
+}
+
+@media(prefers-reduced-motion: reduce){
+    .in-view{
+        animation: none;
     }
 }
 

@@ -30,6 +30,35 @@ class UIManager {
                 }
             });
         });
+
+        this.initScrollAnimation();
+    }
+
+    initScrollAnimation() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.intersectionRatio >= 0.2) {
+                    entry.target.classList.add("in-view");
+                    entry.target.classList.remove("out-of-view");
+                } else if (entry.intersectionRatio === 0) {
+                    entry.target.classList.remove("in-view");
+                    entry.target.classList.add("out-of-view");
+                }
+            });
+        }, { threshold: [0, 0.2] });
+
+        const infoPanels = document.querySelectorAll(".info-panel");
+        infoPanels.forEach((element) => {
+            observer.observe(element);
+        });
+
+        document.querySelectorAll('.icon-grid').forEach((grid) => {
+            grid.querySelectorAll('.icon-grid-item').forEach((item, index) => {
+                item.style.setProperty('--delay', `${(index + 1) * 90}ms`);
+                observer.observe(item);
+            });
+        });
+
     }
 
     closeDropdown() {
