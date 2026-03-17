@@ -87,6 +87,16 @@ nav {
     }
 }
 
+@keyframes fadeInOnly {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
 /*  Nav */
 nav {
     z-index: 1;
@@ -553,11 +563,11 @@ main {
 }
 
 /* ANIMATION */
-.in-view{
+.in-view {
     animation: fadeIn 1s var(--delay, 0s) both;
 }
 
-.out-of-view{
+.out-of-view {
     opacity: 0;
 }
 
@@ -916,6 +926,11 @@ main {
 
 /* End Contact */
 
+.contact-item.in-view,
+.project.in-view {
+    animation: fadeInOnly 1s var(--delay, 0s) both;
+}
+
 
 /* Media Queries */
 @media (min-width: 800px) {
@@ -967,8 +982,8 @@ main {
     }
 }
 
-@media(prefers-reduced-motion: reduce){
-    .in-view{
+@media(prefers-reduced-motion: reduce) {
+    .in-view {
         animation: none;
     }
 }

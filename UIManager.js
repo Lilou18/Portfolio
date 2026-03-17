@@ -59,6 +59,18 @@ class UIManager {
             });
         });
 
+        document.querySelectorAll('.contact-grid').forEach((grid) => {
+            grid.querySelectorAll('.contact-item').forEach((item, index) => {
+                item.style.setProperty('--delay', `${(index + 1) * 150}ms`);
+                observer.observe(item);
+            });
+        });
+
+        document.querySelectorAll('.project').forEach((project, index) => {
+            project.style.setProperty('--delay', `150ms`);
+            observer.observe(project);
+        });
+
     }
 
     closeDropdown() {
