@@ -32,6 +32,38 @@ class UIManager {
         });
 
         this.initScrollAnimation();
+
+        /**
+        * @see {@link https://youtu.be/QtuLN0lNb-Y?si=dyeEksxs9nMZkeqA}
+        */
+        const savedTheme = localStorage.getItem("theme");
+        if (savedTheme) {
+            savedTheme === "dark" ? this.enableDarkMode() : this.enableLightMode();
+        }
+        else {
+            const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+            prefersDark ? this.enableDarkMode() : this.enableLightMode();
+
+        }
+
+        const themeToggle = document.querySelector('#theme-toggle');
+        themeToggle.addEventListener("click", () => {
+            document.body.classList.contains("dark-theme") ? this.enableLightMode() : this.enableDarkMode();
+        });
+    }
+
+    enableDarkMode() {
+        document.body.classList.remove("light-theme")
+        document.body.classList.add("dark-theme");
+        document.querySelector('#theme-toggle span').textContent = "light_mode";
+        localStorage.setItem("theme", "dark");
+    }
+
+    enableLightMode() {
+        document.body.classList.remove("dark-theme")
+        document.body.classList.add("light-theme");
+        document.querySelector('#theme-toggle span').textContent = "dark_mode";
+        localStorage.setItem("theme", "light");
     }
 
     initScrollAnimation() {
