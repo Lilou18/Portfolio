@@ -486,7 +486,6 @@ main {
         0 6px 0 0 rgb(var(--color-dark-dark-purple-rgb)),
         0 8px 0 0 rgb(var(--color-dark-dark-purple-rgb)),
         0 8px 16px 0 rgba(var(--color-dark-dark-purple-rgb), 0.5);
-    overflow: hidden;
     transition: transform 250ms, box-shadow 250ms;
     background-image: var(--gradient-contact-project-btn);
 }
@@ -969,8 +968,6 @@ main {
 
 .copy-tooltip {
     position: absolute;
-    top: 10px;
-    right: 10px;
     background: rgb(var(--color-text));
     color: var(--color-darker-purple);
     font-size: 0.75rem;
@@ -979,6 +976,17 @@ main {
     opacity: 0;
     transition: opacity 0.2s;
     pointer-events: none;
+}
+
+.contact-item .copy-tooltip {
+    top: 10px;
+    right: 10px;
+}
+
+.profil-icons .copy-tooltip {
+    bottom: calc(100% + 5px);
+    right: 50%;
+    transform: translateX(50%);
 }
 
 .copy-tooltip i {
@@ -1168,7 +1176,7 @@ main {
 
     --gradient-contact-project-btn: linear-gradient(to top right, rgb(var(--color-darker-purple-rgb)), rgba(var(--color-darker-purple-rgb), 1), var(--active-tab-color));
     /* --gradient-panel-header: radial-gradient(circle, rgba(var(--lighter-purple-rgb), 0.4) 50%, rgb(149, 116, 187) 100%); */
-        --gradient-panel-header: radial-gradient(circle, rgba(203, 174, 233) 50%, rgb(149, 116, 187) 100%);
+    --gradient-panel-header: radial-gradient(circle, rgba(203, 174, 233) 50%, rgb(149, 116, 187) 100%);
 
 }
 
@@ -1191,10 +1199,9 @@ main {
 
 .light-theme #contact .content-section::before,
 .light-theme #profilPanel .content-section::before,
-.light-theme #portfolioPanel .content-section::before
-{
+.light-theme #portfolioPanel .content-section::before {
     /* background: linear-gradient(180deg, var(--surface-color), var(--color-darker-purple), var(--surface-color)); */
-    background: radial-gradient(circle,rgba(255, 255, 255, 1) 80%, rgb(196, 178, 255) 100%);
+    background: radial-gradient(circle, rgba(255, 255, 255, 1) 80%, rgb(196, 178, 255) 100%);
 }
 
 /* .light-theme .contact-item {
