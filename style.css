@@ -545,6 +545,17 @@ main {
     padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
 }
 
+.profil-list {
+    margin: 0px;
+    padding-left: clamp(1.25rem, 0.357rem + 2.381vw, 2.5rem);
+}
+
+.profil-list li {
+    line-height: 2.5;
+    font-size: var(--fs-p);
+    color: var(--color-text);
+}
+
 .item-header {
     display: flex;
     align-items: center;
