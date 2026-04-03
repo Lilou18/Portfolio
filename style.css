@@ -73,6 +73,8 @@ html {
     font-optical-sizing: auto;
     font-style: normal;
     color: rgb(var(--color-text));
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 body {
