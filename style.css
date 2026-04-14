@@ -476,6 +476,9 @@ main {
 }
 
 .profil-icons {
+    display: inline-flex; 
+    align-items: center;
+    gap: 5px;
     color: rgb(var(--color-text));
     text-decoration: none;
     border: 1px solid var(--border-color);
