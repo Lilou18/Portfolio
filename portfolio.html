@@ -13,6 +13,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=dark_mode,light_mode" />
     <script src="https://kit.fontawesome.com/a20723a298.js" crossorigin="anonymous"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Lilou Blanchette</title>
@@ -36,7 +38,7 @@
                     <div class="tabs-dropdown hidden" id="tabsDropdown">
                         <a href="index.html" class="dropdown-tab">
                             <span class="tab-icon"><i class="fa-solid fa-globe"></i></span>
-                            Acceuil
+                            Profil
                             <span class="close-tab">x</span>
                         </a>
                         <a href="portfolio.html" class="dropdown-tab active-dropdown-tab">
@@ -54,7 +56,7 @@
                     <!--Desktop-->
                     <a href="index.html" class="tab">
                         <span class="tab-icon"><i class="fa-solid fa-globe"></i></span>
-                        Acceuil
+                        Profil
                         <span class="close-tab">x</span>
                     </a>
                     <a href="portfolio.html" class="tab active-tab">
@@ -67,6 +69,10 @@
                         Contact
                         <span class="close-tab">x</span>
                     </a>
+                    <button id="theme-toggle" aria-label="Passer au thème clair"><span
+                            aria-label="Passer au thème clair" class="material-symbols-outlined">
+                            light_mode
+                        </span></button>
 
                     <div class="window-buttons-wrapper">
                         <button class="window-button"><i class="fa-solid fa-window-minimize"></i></i></button>
@@ -81,7 +87,7 @@
                         <button class="nav-btn"><i class="fa-solid fa-arrow-right"></i></button>
                         <button class="nav-btn"><i class="fa-solid fa-arrow-rotate-right"></i></button>
                     </div>
-                    <input id="url" readonly type="text" value="https://cv.lilou-blanchette.dev/portfolio">
+                    <input id="url" readonly type="text" value="https://lilou-blanchette.dev/portfolio">
                 </div>
             </div>
 
@@ -249,7 +255,8 @@
                                     <li>Conception et programmation du personnage « Bouclier »</li>
                                     <li>Développement de la fonctionnalité multijoueur en utilisant
                                         Photon Unity <span style="white-space: nowrap">Networking 2</span></li>
-                                    <li>Collaboration à la conception des modes de jeu <span style="white-space: nowrap">Free-for-all</span>
+                                    <li>Collaboration à la conception des modes de jeu <span
+                                            style="white-space: nowrap">Free-for-all</span>
                                         et <span style="white-space: nowrap">2 vs 2</span></li>
                                     <li> Implémentation des collisions et du système de points de
                                         vie</li>
@@ -261,8 +268,11 @@
                             <p class="project-description">Portals
                                 0.12
                                 est un jeu de tir à la première personne
-                                de type Battle Royale. Il propose trois modes de jeu : <span style="white-space: nowrap">Free-for
-                                all,</span> <span style="white-space: nowrap">2 vs 2</span> et <span style="white-space: nowrap">Player vs Bot.</span> Les joueurs peuvent incarner l’un des
+                                de type Battle Royale. Il propose trois modes de jeu : <span
+                                    style="white-space: nowrap">Free-for
+                                    all,</span> <span style="white-space: nowrap">2 vs 2</span> et <span
+                                    style="white-space: nowrap">Player vs Bot.</span> Les joueurs peuvent incarner l’un
+                                des
                                 quatre personnages, chacun doté d’armes et de compétences
                                 uniques. Le jeu intègre un système de déplacement par portails
                                 et des cartes générées procéduralement.</span>
