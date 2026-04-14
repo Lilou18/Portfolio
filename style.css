@@ -550,6 +550,18 @@ main {
     padding: clamp(0.625rem, -0.268rem + 2.381vw, 1.875rem);
 }
 
+.bio-wrapper{
+    display: flex;
+    flex-direction: column;
+    font-size: var(--fs-p);
+    gap: 25px;
+}
+
+.bio-wrapper p{
+    margin: 0;
+    line-height: 2.5;
+}
+
 .profil-list {
     margin: 0px;
     padding-left: clamp(1.25rem, 0.357rem + 2.381vw, 2.5rem);
